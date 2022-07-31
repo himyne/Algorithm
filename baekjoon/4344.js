@@ -1,4 +1,4 @@
-let input = require('fs').readFileSync('dev/stdin').toString().split('\n');
+let input = require('fs').readFileSync('/dev/stdin').toString().split('\n');
 let num = input[0] * 1;
 const inputTestCase = [];
 
