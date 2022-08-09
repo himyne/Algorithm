@@ -1,4 +1,5 @@
 //문자열 - 단어 공부
+/* 첫번째 방법 : 객체 탐색 */ 
 const fs = require("fs");
 let input = fs.readFileSync("/dev/stdin").toString().split('\n');
 
@@ -25,7 +26,7 @@ let input = fs.readFileSync("/dev/stdin").toString().split('\n');
   }
   console.log(result);
 
-/* 두번째 방식 - 더 빠른 코드
+/* 두번째 방식 - 아스키코드 이용(더 빠름)
 let input = require('fs').readFileSync('/dev/stdin').toString().toLowerCase();
 
 const result = new Array(26).fill(0);
