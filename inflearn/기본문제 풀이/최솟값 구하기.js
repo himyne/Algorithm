@@ -9,3 +9,7 @@ function solution(arr){
 }
 let arr = [5, 3, 7, 11, 2, 15, 17]
 console.log(solution(arr))
+
+//내장함수로 최솟값, 최댓값 구하기 : Math.min(...arr)/Math.max(...arr)
+// ...arr : 인자를 펼쳐줌(arr[0], arr[1], arr[2] ~~~)
+//Math.min.apply(객체, 배열);
