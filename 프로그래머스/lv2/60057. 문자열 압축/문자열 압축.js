@@ -1,30 +1,45 @@
 function solution(s) {
-    if(s.length === 1) return 1;
-    const lenArr = [];
-    
-    for(let i=1; i<s.length; i++) {
-        const answer = [];
-        const result = []; 
-        const str = [...s];
-        for(let j=0; j<s.length/i; j++){
-            const slicedArr = str.splice(0, i);
-            result.push(slicedArr)
-        }
-        
+    if(s.length === 1 ) return 1;
+    let min = 1000;
+    for (let i = 1; i <= s.length / 2; i++) {
+        let str1 = '';
+        let str2 = '';
+        let ans = '';
         let count = 1;
-        for(let k=0; k<result.length-1; k++){
-            const a = result[k].join('');
-            const b = result[k+1].join('');
-            
-            if(a === b) count++;
-            
-            if(a !== b){
-                answer.push(count===1 ? '' : count, a);
-                count = 1;
+        for (let j = 0; j < s.length; j += i) {
+
+            if( j === 0 ) {
+                str1 = s.slice(j, j + i);
+            }else{
+                str2 = s.slice(j, j + i)
+                if(str1 === str2){
+                    count++;
+                    if(j+i === s.length) ans += `${count}${str1}`;
+
+                }else{
+                    if( count > 1 ){
+                        ans += `${count}${str1}`
+                    }else{
+                        ans += str1;
+                    }
+                    count = 1;
+                    if(str1.length > str2.length){
+                        ans += str2;
+                    }
+                    str1 = str2;
+                    if(j+i === s.length) ans += str2;
+                }
             }
-            if(k === result.length-2) answer.push(count===1 ? '' : count, b);
+
+
+
+
         }
-        lenArr.push(answer.join('').length);
+        min = Math.min(ans.length, min);
     }
-    return Math.min(...lenArr)
+
+
+
+
+    return min;
 }
