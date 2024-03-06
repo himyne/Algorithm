@@ -11,7 +11,7 @@ function solution(N, number) {
           dp[i].add(origin + value);
           dp[i].add(origin - value);
           dp[i].add(origin * value);
-          dp[i].add(Math.floor(origin / value));
+          dp[i].add((origin / value));
         }
       }
     }
